@@ -1,3 +1,4 @@
+import 'package:airbnb/main-screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,11 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Airbnb Hotel and Travel',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(),
-    );
+        title: 'Airbnb Hotel and Travel',
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Work Sans'),
+        home: MainScreen());
   }
 }
