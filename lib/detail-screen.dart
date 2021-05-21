@@ -1,3 +1,4 @@
+import 'package:airbnb/payment-success.dart';
 import 'package:airbnb/template/fonts-template.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +172,11 @@ class DetailScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   child: Text("RESERVE"),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return PaymentSuccess();
+                    }));
+                  },
                   style: buttonStyle,
                 ),
               ],
