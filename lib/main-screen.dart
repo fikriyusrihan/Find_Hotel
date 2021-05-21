@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airbnb/template/fonts-template.dart';
+import 'package:airbnb/detail-screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatelessWidget {
@@ -19,59 +20,67 @@ class MainScreen extends StatelessWidget {
                 ),
                 margin: EdgeInsets.only(bottom: 24),
               ),
-              Card(
-                child: Row(
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('images/gca2_apartment.jpg'),
-                              fit: BoxFit.cover)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(14.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(bottom: 16),
-                              child: Text('GCA2 Apartment', style: cardTitle)),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 4),
-                            child: Text(
-                              'Cidadap, Bandung, Jawa Barat',
-                              style: cardContent,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 4),
-                            child: Row(
-                              children: [
-                                SvgPicture.asset('images/icon_star.svg'),
-                                Container(
-                                  padding: EdgeInsets.only(left: 8),
-                                  child: Text(
-                                    '4.8',
-                                    style: cardRating,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(bottom: 4),
-                            child: Text(
-                              'Rp1.200.000/night',
-                              style: cardContent,
-                            ),
-                          ),
-                        ],
+              InkWell(
+                child: Card(
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 120,
+                        width: 120,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('images/gca2_apartment.jpg'),
+                                fit: BoxFit.cover)),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: EdgeInsets.all(14.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(bottom: 16),
+                                child:
+                                    Text('GCA2 Apartment', style: cardTitle)),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 4),
+                              child: Text(
+                                'Cidadap, Bandung, Jawa Barat',
+                                style: cardContent,
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 4),
+                              child: Row(
+                                children: [
+                                  SvgPicture.asset('images/icon_star.svg'),
+                                  Container(
+                                    padding: EdgeInsets.only(left: 8),
+                                    child: Text(
+                                      '4.8',
+                                      style: cardRating,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 4),
+                              child: Text(
+                                'Rp1.200.000/night',
+                                style: cardContent,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DetailScreen();
+                  }));
+                },
               )
             ],
           ),
