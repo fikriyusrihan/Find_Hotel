@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Airbnb Hotel and Travel',
         theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Work Sans'),
         home: MainScreen());
