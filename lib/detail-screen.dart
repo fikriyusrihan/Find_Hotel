@@ -3,8 +3,16 @@ import 'package:airbnb/template/fonts-template.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
+import 'model/Hotel.dart';
+
+final formatCurrency = new NumberFormat.simpleCurrency(locale: 'id_ID');
 
 class DetailScreen extends StatelessWidget {
+  final Hotel hotel;
+
+  DetailScreen({@required this.hotel});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +22,7 @@ class DetailScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Image.asset('images/gca2_apartment.jpg'),
+              Image.asset(hotel.imgAsset),
               SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
@@ -49,10 +57,10 @@ class DetailScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "GCA2 Apartment",
+                      hotel.name,
                       style: detailPrimary,
                     ),
-                    Text("Cidadap, Bandung, Jawa Barat", style: detailSecondary)
+                    Text(hotel.location, style: detailSecondary)
                   ],
                 ),
                 Row(
@@ -61,7 +69,7 @@ class DetailScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(left: 8),
                       child: Text(
-                        '4.8',
+                        hotel.rating.toString(),
                         style: cardRating,
                       ),
                     )
@@ -73,7 +81,7 @@ class DetailScreen extends StatelessWidget {
           Padding(
               padding: EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 16.0),
               child: Text(
-                "Enjoy your journey in cozy unit at Gateway Pasteur Apartment the nearest from Pasteur Toll road, 5’ from Husein Sastranegara international Airport, Nice room with newest interior fully furnished, 1 Bedroom, sofa and AC, TV Cable with home theater. Kitchen Set, refrigerator for your meals. Clean and tidy bathroom with Water Heater.",
+                hotel.description,
                 style: detailDescription,
               )),
           Padding(
@@ -167,7 +175,7 @@ class DetailScreen extends StatelessWidget {
                       "Price",
                       style: TextStyle(fontSize: 16.0),
                     ),
-                    Text("Rp1.200.000/night", style: detailTitleInfo)
+                    Text('${formatCurrency.format(hotel.price)}/night', style: detailTitleInfo)
                   ],
                 ),
                 ElevatedButton(
