@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'model/Hotel.dart';
+import 'model/hotel.dart';
 
 final formatCurrency = new NumberFormat.simpleCurrency(locale: 'id_ID');
 

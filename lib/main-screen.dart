@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:airbnb/template/fonts-template.dart';
 import 'package:airbnb/detail-screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:airbnb/model/Hotel.dart';
+import 'package:airbnb/model/hotel.dart';
 import 'package:intl/intl.dart';
 
 final formatCurrency = new NumberFormat.simpleCurrency(locale: 'id_ID');
@@ -43,7 +43,8 @@ class MainScreen extends StatelessWidget {
                                         image: AssetImage(hotel.imgAsset),
                                         fit: BoxFit.cover)),
                               ),
-                              Padding(
+                              Expanded(
+                                  child: Padding(
                                 padding: EdgeInsets.all(14.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,11 +53,12 @@ class MainScreen extends StatelessWidget {
                                         margin: EdgeInsets.only(bottom: 16),
                                         child:
                                             Text(hotel.name, style: cardTitle)),
-                                    Container(
-                                      margin: EdgeInsets.only(bottom: 4),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(bottom: 4, right: 4),
                                       child: Text(
                                         hotel.location,
-                                        style: cardContent,
+                                        style: detailSecondary,
                                       ),
                                     ),
                                     Container(
@@ -84,14 +86,16 @@ class MainScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              )
+                              ))
                             ],
                           ),
                         ),
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return DetailScreen(hotel: hotel,);
+                            return DetailScreen(
+                              hotel: hotel,
+                            );
                           }));
                         },
                       );
